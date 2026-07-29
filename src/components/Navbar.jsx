@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <div className="flex justify-between items-center p-4">
       {/* Logo  */}
-      <img src={assets.logo} className="w-50" alt="" />
+      <img src={assets.logo} className="w-30" alt="" />
 
       {/* Menu Buttons  */}
       <ul className="sm:flex text-gray-700 text-m font-semibold gap-5 hidden">
