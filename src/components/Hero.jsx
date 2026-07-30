@@ -11,16 +11,16 @@ const Hero = () => {
             <p className="uppercase font-medium">Our BestSellers</p>
           </div>
 
-          <h1 className="prata-regular text-3xl lg:text-6xl">Latest Arrivals</h1>
+          <h1 className="prata-regular text-3xl lg:text-6xl leading-relaxed">Latest Arrivals</h1>
 
-          <div className="flex items-center gap-1.5 py-3">
+          <div className="flex items-center gap-1.5">
             <p className="uppercase font-medium">Shop Now</p>
             <p className="w-8 md:w-10 bg-[#414141] h-0.5"></p>
           </div>
         </div>
       </div>
       {/* Right Section  */}
-        <img src={assets.hero_img} className='w-full sm:w-1/2' alt="" />
+        <img src={assets.hero_img_t} className='w-full sm:w-1/2' alt="" />
 
     </div>
   );
