@@ -2,9 +2,9 @@ import {assets} from '../assets/assets'
 
 const Hero = () => {
   return (
-    <div className="flex flex-col sm:flex-row border border-gray-400 rounded">
+    <div className="flex flex-col sm:flex-row border border-gray-400 rounded m-4">
       {/* Left Section  */}
-      <div className="flex items-center justify-center w-full sm:w-1/2 py-5 sm:py-0">
+      <div className="w-full sm:w-1/2 flex items-center justify-center py-10 sm:py-0">
         <div className="text-[#414141]">
           <div className="flex items-center gap-1.5">
             <p className="w-8 md:w-10 h-0.5 bg-[#414141]"></p>
