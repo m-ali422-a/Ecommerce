@@ -88,12 +88,12 @@ const Navbar = () => {
               className="h-4 rotate-180 cursor-pointer"
               alt=""
             />
-            <p className="text-[20px] cursor-pointer">Back</p>
+            <p className="text-[18px] cursor-pointer">Back</p>
           </div>
-          <NavLink onClick={()=>setVisible(false)} to="/" className="py-2 pl-8 border-b font-semibold text-2xl">Home</NavLink>
-          <NavLink onClick={()=>setVisible(false)} to="/collection" className="py-2 pl-8 border-b font-semibold text-2xl">Collection</NavLink>
-          <NavLink onClick={()=>setVisible(false)} to="/about" className="py-2 pl-8 border-b font-semibold text-2xl">About</NavLink>
-          <NavLink onClick={()=>setVisible(false)} to="/contact" className="py-2 pl-8 border-b font-semibold text-2xl">Contact</NavLink>
+          <NavLink onClick={()=>setVisible(false)} to="/" className="py-2 pl-8 border-b font-semibold text-sm">Home</NavLink>
+          <NavLink onClick={()=>setVisible(false)} to="/collection" className="py-2 pl-8 border-b font-semibold text-sm">Collection</NavLink>
+          <NavLink onClick={()=>setVisible(false)} to="/about" className="py-2 pl-8 border-b font-semibold text-sm">About</NavLink>
+          <NavLink onClick={()=>setVisible(false)} to="/contact" className="py-2 pl-8 border-b font-semibold text-sm">Contact</NavLink>
 
           
         </div>
