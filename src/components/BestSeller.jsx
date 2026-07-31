@@ -13,8 +13,8 @@ console.log(setBestSeller);
   },[])
 
   return (
-    <div className="my-5 sm:my-10">
-      <div className="text-center text-xl sm:text-4xl pt-10">
+    <div className="my-2 sm:my-10">
+      <div className="text-center text-2xl sm:text-4xl pt-10">
         <Title text1={"Best"} text2={"Seller"} />
       <p className="text-xs sm:text-sm md:text-lg text-gray-600">
         Explore the best sellers crafted with modern designs and timeless
