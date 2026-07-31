@@ -5,6 +5,7 @@ const Title = ({text1,text2}) => {
         <p className="text-gray-500 uppercase">{text1} <span className="text-gray-700">{text2}</span> </p>
         <p className="w-8 sm:w-12 h-0.5 bg-gray-700"></p>
     </div>
+    
   )
 }
 

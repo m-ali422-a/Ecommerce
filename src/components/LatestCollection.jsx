@@ -13,7 +13,7 @@ const LatestCollection = () => {
 
   return (
     <div className="my-2 sm:my-10">
-      <div className="text-center text-2xl sm:text-4xl py-5 sm:py-10">
+      <div className="text-center text-3xl py-5 sm:py-8">
         <Title text1={"Latest"} text2={"Collection"} />
         <p className="text-xs sm:text-sm md:text-lg text-gray-600">
           Explore the newest arrivals crafted with modern designs and timeless
@@ -23,7 +23,7 @@ const LatestCollection = () => {
 
       {/* Latest Collection Products Rendering  */}
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 p-5 sm:p-0 ">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 p-3 sm:p-0">
         {latestProducts?.map((item,index)=>(
           <ProductItem 
           key={index}

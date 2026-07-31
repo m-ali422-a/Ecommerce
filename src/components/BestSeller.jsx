@@ -14,7 +14,7 @@ console.log(setBestSeller);
 
   return (
     <div className="my-2 sm:my-10">
-      <div className="text-center text-2xl sm:text-4xl pt-5 sm:pt-10">
+      <div className="text-center text-3xl pt-5 sm:p-10">
         <Title text1={"Best"} text2={"Seller"} />
       <p className="text-xs sm:text-sm md:text-lg text-gray-600">
         Explore the best sellers crafted with modern designs and timeless
@@ -22,7 +22,7 @@ console.log(setBestSeller);
       </p>
       </div>
 
-      <div className="grid grid-cols-2 sm:gird-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 pt-10">
+      <div className="grid grid-cols-2 sm:gird-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 pt-10 p-3 sm:p-0">
         {
             bestSeller?.map((item,index)=>(
                 <ProductItem
