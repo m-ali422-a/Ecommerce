@@ -10,7 +10,7 @@ const Navbar = () => {
       <Link to='/'><img src={assets.logo} className="w-30 sm:w-45" alt="" /></Link>
 
       {/* Menu Buttons  */}
-      <ul className="sm:flex text-gray-700 text-m font-semibold gap-5 hidden">
+      <ul className="sm:flex text-gray-700 text-sm font-medium gap-5 hidden">
         <NavLink to="/" className="flex flex-col items-center gap-1 uppercase">
           <p>Home</p>
           <hr className="w-2/4 bg-gray-700 h-[1.5px] hidden" />

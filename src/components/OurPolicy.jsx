@@ -1,5 +1,5 @@
 import { assets } from "../assets/assets"
-import PolicyCard from "./sharedComponents/PolicyCard"
+import PolicyCard from "../sharedComponents/PolicyCard"
 
 
 const OurPolicy = () => {
