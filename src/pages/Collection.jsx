@@ -5,46 +5,77 @@ import Title from "../components/Title";
 import ProductItem from "../components/ProductItem";
 
 const Collection = () => {
-  const { products } = useContext(ShopContext);
+  const { products,search,showSearch } = useContext(ShopContext);
   const [showFilter, setShowFilter] = useState(false);
 
   const [mapProducts, setMapProducts] = useState([]);
   const [category, setCategory] = useState([]);
   const [otherCategory, setOtherCategory] = useState([]);
+  const [sortType, setSortType] = useState("relevant");
 
-  const toggleCategory = (e)=>{
-    if(category.includes(e.target.value)){
-      setCategory(prev => prev.filter(item => item !== e.target.value))
+  const toggleCategory = (e) => {
+    if (category.includes(e.target.value)) {
+      setCategory((prev) => prev.filter((item) => item !== e.target.value));
+    } else {
+      setCategory((prev) => [...prev, e.target.value]);
     }
-    else{
-      setCategory(prev => [...prev,e.target.value])
-    }
-  }
+  };
 
-  const toggleOtherCategory = (e)=>{
-    if(otherCategory.includes(e.target.value)){
-      setOtherCategory(prev => prev.filter(item => item !== e.target.value))
+  const toggleOtherCategory = (e) => {
+    if (otherCategory.includes(e.target.value)) {
+      setOtherCategory((prev) =>
+        prev.filter((item) => item !== e.target.value),
+      );
+    } else {
+      setOtherCategory((prev) => [...prev, e.target.value]);
     }
-    else{
-      setOtherCategory(prev => [...prev,e.target.value])
-    }
-  }
+  };
 
-  const applyFilter = ()=>{
+  const applyFilter = () => {
     let copyProducts = products.slice();
 
-    if(category.length > 0){
-      copyProducts = copyProducts.filter(item => category.includes(item.category))
+    if(search && showSearch){
+      copyProducts = copyProducts.filter(item => item.name.toLowerCase().includes(search.toLowerCase()))
     }
-    if(otherCategory.length > 0){
-      copyProducts = copyProducts.filter(item => otherCategory.includes(item.subCategory))
-    }
-    setMapProducts(copyProducts)
-  }
 
-  useEffect(()=>{
-    applyFilter()
-  },[category,otherCategory])
+    if (category.length > 0) {
+      copyProducts = copyProducts.filter((item) =>
+        category.includes(item.category),
+      );
+    }
+    if (otherCategory.length > 0) {
+      copyProducts = copyProducts.filter((item) =>
+        otherCategory.includes(item.subCategory),
+      );
+    }
+    setMapProducts(copyProducts);
+  };
+
+  const sortProducts = () => {
+    let fpCopy = mapProducts.slice();
+
+    switch (sortType) {
+      case "low-high":
+        setMapProducts(fpCopy.sort((a, b) => a.price - b.price));
+        break;
+
+      case "high-low":
+        setMapProducts(fpCopy.sort((a, b) => b.price - a.price));
+        break;
+
+      default:
+        applyFilter();
+        break;
+    }
+  };
+
+  useEffect(() => {
+    applyFilter();
+  }, [category, otherCategory,search,showSearch]);
+
+  useEffect(() => {
+    sortProducts();
+  }, [sortType]);
 
   return (
     <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 border-gray-300 border-t pt-10">
@@ -129,7 +160,10 @@ const Collection = () => {
           <Title text1={"All"} text2={"Collections"} />
 
           {/* Product Sorting  */}
-          <select className="border-2 border-gray-300 text-sm p-2">
+          <select
+            onChange={(e) => setSortType(e.target.value)}
+            className="border-2 border-gray-300 text-sm p-2"
+          >
             <option value="relevant">Sort by:Relevant</option>
             <option value="low-high">Sort by:Low to High</option>
             <option value="high-low">Sort by:High to Low </option>

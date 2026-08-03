@@ -1,13 +1,19 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ShopContext } from "../context/ShopContext";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
+  const { setShowSearch } = useContext(ShopContext);
+  const navigate = useNavigate();
+
   return (
     <div className="flex justify-between items-center py-4">
       {/* Logo  */}
-      <Link to='/'><img src={assets.logo} className="w-30 sm:w-40" alt="" /></Link>
+      <Link to="/">
+        <img src={assets.logo} className="w-30 sm:w-40" alt="" />
+      </Link>
 
       {/* Menu Buttons  */}
       <ul className="sm:flex text-gray-700 text-sm font-medium gap-5 hidden">
@@ -43,7 +49,15 @@ const Navbar = () => {
 
       {/* Right Buttons  */}
       <div className="flex items-center gap-7">
-        <img src={assets.search_icon} className="w-5 cursor-pointer" alt="" />
+        <img
+          onClick={() => {
+            setShowSearch(true)
+            navigate('/collection')
+          }}
+          src={assets.search_icon}
+          className="w-5 cursor-pointer"
+          alt=""
+        />
 
         <div className="group relative">
           <img
@@ -90,12 +104,34 @@ const Navbar = () => {
             />
             <p className="text-[18px] cursor-pointer">Back</p>
           </div>
-          <NavLink onClick={()=>setVisible(false)} to="/" className="py-2 pl-8 border-b font-semibold text-sm">Home</NavLink>
-          <NavLink onClick={()=>setVisible(false)} to="/collection" className="py-2 pl-8 border-b font-semibold text-sm">Collection</NavLink>
-          <NavLink onClick={()=>setVisible(false)} to="/about" className="py-2 pl-8 border-b font-semibold text-sm">About</NavLink>
-          <NavLink onClick={()=>setVisible(false)} to="/contact" className="py-2 pl-8 border-b font-semibold text-sm">Contact</NavLink>
-
-          
+          <NavLink
+            onClick={() => setVisible(false)}
+            to="/"
+            className="py-2 pl-8 border-b font-semibold text-sm"
+          >
+            Home
+          </NavLink>
+          <NavLink
+            onClick={() => setVisible(false)}
+            to="/collection"
+            className="py-2 pl-8 border-b font-semibold text-sm"
+          >
+            Collection
+          </NavLink>
+          <NavLink
+            onClick={() => setVisible(false)}
+            to="/about"
+            className="py-2 pl-8 border-b font-semibold text-sm"
+          >
+            About
+          </NavLink>
+          <NavLink
+            onClick={() => setVisible(false)}
+            to="/contact"
+            className="py-2 pl-8 border-b font-semibold text-sm"
+          >
+            Contact
+          </NavLink>
         </div>
       </div>
     </div>

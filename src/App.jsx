@@ -10,11 +10,13 @@ import PlaceOrder from "./pages/PlaceOrder"
 import Orders from "./pages/Orders"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
+import SearchBar from "./components/SearchBar"
 
 const App = () => {
   return (
     <div className="px-1 sm:px-[4vw] md:px-[7vw] lg:px-[8vw]">
       <Navbar/>
+      <SearchBar/>
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/collection" element={<Collection/>} />

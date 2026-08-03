@@ -6,7 +6,6 @@ import ProductItem from "./ProductItem";
 const BestSeller = () => {
   const {products} = useContext(ShopContext);
   const [bestSeller, setBestSeller] = useState([]);
-console.log(setBestSeller);
   useEffect(()=>{
       const bestProducts = products.filter((e)=>e.bestseller);
       setBestSeller(bestProducts.slice(0,5));
