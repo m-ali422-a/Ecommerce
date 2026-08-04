@@ -21,7 +21,7 @@ const BestSeller = () => {
       </p>
       </div>
 
-      <div className="grid grid-cols-2 sm:gird-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 pt-10 p-3 sm:p-0">
+      <div className="grid grid-cols-2 sm:gird-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 pt-10 sm:p-0">
         {
             bestSeller?.map((item,index)=>(
                 <ProductItem

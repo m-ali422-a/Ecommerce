@@ -9,7 +9,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex justify-between items-center py-4">
+    <div className="flex justify-between items-center py-4 ">
       {/* Logo  */}
       <Link to="/">
         <img src={assets.logo} className="w-30 sm:w-40" alt="" />
