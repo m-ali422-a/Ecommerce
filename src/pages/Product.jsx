@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
 import { assets } from "../assets/assets";
 import Button from "../components/Button";
+import RelatedProduct from "../components/RelatedProduct";
 
 const Product = () => {
   const { productId } = useParams();
@@ -23,10 +24,14 @@ const Product = () => {
 
   useEffect(() => {
     fetchData();
+    window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
   }, [productId]);
 
   return productData ? (
-    <div className="border-t border-gray-200 pt-10">
+    <div className="border-t border-gray-200 pt-10 transition-opacity ease-in duration-500 opacity-100">
       {/* Product Data  */}
       <div className="flex gap-12 sm:gap-12 flex-col sm:flex-row">
         {/* Products Images  */}
@@ -65,7 +70,7 @@ const Product = () => {
           <p className="mt-3 text-gray-500 md:w-4/5">
             {productData.description}
           </p>
-            {/* Size Section  */}
+          {/* Size Section  */}
           <div className="flex flex-col gap-4 my-10">
             <p>Select Size</p>
             <div className="flex gap-2">
@@ -82,7 +87,7 @@ const Product = () => {
             {/* Add to Cart Button  */}
             <Button text={"Add to Cart"} style={"!text-sm"} />
             <div className="border-b w-4/5 mt-8 border-gray-300"></div>
-            
+
             <div className="text-sm text-gray-500 flex flex-col gap-2">
               <div className="flex items-center gap-2">
                 <p className="w-8 md:w-5 h-[1px] bg-[#414141]"></p>
@@ -100,6 +105,22 @@ const Product = () => {
           </div>
         </div>
       </div>
+      {/* Description And review section  */}
+      <div className="mt-15">
+        <div className="flex">
+          <p className="text-sm font-semibold border px-5 py-3 border-gray-300">Description</p>
+          <p className="text-sm border px-5 py-3 border-gray-300">Reviews(10)</p>
+        </div>
+        <div className="flex flex-col gap-2 border text-sm p-6 text-gray-500 border-gray-300">
+          <p>An e-commerce website is an online platform that facilitates the buying and selling of products or services over the internet. It serves as a virtual marketplace where businesses and individuals can showcase their products, interact with customers, and conduct transactions without the need for a physical presence. E-commerce websites have gained immense popularity due to their convenience, accessibility, and the global reach they offer.</p>
+          <p>E-commerce websites typically display products or services along with detailed descriptions, images, prices, and any available variations (e.g., sizes, colors). Each product usually has its own dedicated page with relevant information.</p>
+        </div>
+      </div>
+
+      {/* Related Products  */}
+
+          <RelatedProduct category={productData.category} subCategory={productData.subCategory} />
+
     </div>
   ) : (
     <div className="opacity-0"></div>
