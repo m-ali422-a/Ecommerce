@@ -1,3 +1,5 @@
+import Button from "./Button";
+
 const NewsLetter = () => {
   const submitHandler = (e) => {
     e.preventDefault();
@@ -19,12 +21,7 @@ const NewsLetter = () => {
           placeholder="Enter your email"
           required
         />
-        <button
-          className="bg-black text-white text-xs px-10 py-4 cursor-pointer uppercase"
-          type="submit"
-        >
-          Subscribe
-        </button>
+        <Button text={'Subscribe'} />
       </form>
     </div>
   );
