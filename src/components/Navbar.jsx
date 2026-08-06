@@ -5,7 +5,7 @@ import { ShopContext } from "../context/ShopContext";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
-  const { setShowSearch } = useContext(ShopContext);
+  const { setShowSearch, getCartCount } = useContext(ShopContext);
   const navigate = useNavigate();
 
   return (
@@ -76,7 +76,7 @@ const Navbar = () => {
         <Link to="/cart" className="relative">
           <img src={assets.cart_icon} className="w-5 cursor-pointer" alt="" />
           <p className="absolute w-4 bg-black text-white text-center -right-1.25 -bottom-1.25 text-[9px] rounded-full leading-4">
-            10
+            {getCartCount()}
           </p>
         </Link>
         {/* Menu for icon small screens  */}

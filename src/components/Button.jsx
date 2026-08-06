@@ -1,7 +1,8 @@
-const Button = ({text,style}) => {
+const Button = ({text,style,onClick}) => {
   return (
     <div>
         <button
+          onClick={onClick}
           className={`bg-black text-white text-xs px-10 py-4 cursor-pointer uppercase ${style}`}
           type="submit"
         >
